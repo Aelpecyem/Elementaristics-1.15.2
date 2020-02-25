@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "elementaristics:block/stonebricks_enriched",
+    "top": "elementaristics:block/stonebricks_enriched",
+    "side": "elementaristics:block/stonebricks_enriched"
+  }
+}

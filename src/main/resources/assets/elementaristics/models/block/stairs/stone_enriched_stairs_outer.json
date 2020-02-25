@@ -1,0 +1,8 @@
+{
+  "parent": "block/outer_stairs",
+  "textures": {
+    "bottom": "elementaristics:block/stone_enriched",
+    "top": "elementaristics:block/stone_enriched",
+    "side": "elementaristics:block/stone_enriched"
+  }
+}

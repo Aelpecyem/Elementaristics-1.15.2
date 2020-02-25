@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "elementaristics:block/slabs/stone_enriched_slab"
+    },
+    "type=top": {
+      "model": "elementaristics:block/slabs/stone_enriched_slab_top"
+    },
+    "type=double": { "model": "elementaristics:block/stone_enriched" }
+  }
+}

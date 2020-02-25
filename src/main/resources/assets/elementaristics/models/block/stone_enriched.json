@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "elementaristics:block/stone_enriched"
+  }
+}
