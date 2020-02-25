@@ -1,4 +1,4 @@
-package de.aelpecyem.lib;
+package de.aelpecyem.elementaristics.lib;
 
 import java.awt.*;
 

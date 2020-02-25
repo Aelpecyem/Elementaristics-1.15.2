@@ -1,8 +1,8 @@
-package de.aelpecyem.reg;
+package de.aelpecyem.elementaristics.reg;
 
-import de.aelpecyem.Elementaristics;
-import de.aelpecyem.lib.Constants;
-import de.aelpecyem.lib.Util;
+import de.aelpecyem.elementaristics.Elementaristics;
+import de.aelpecyem.elementaristics.lib.Constants;
+import de.aelpecyem.elementaristics.lib.Util;
 import net.minecraft.block.Block;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.StairsBlock;
@@ -17,7 +17,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
 
-import static de.aelpecyem.lib.Constants.BlockNames;
+import static de.aelpecyem.elementaristics.lib.Constants.BlockNames;
 
 @ObjectHolder(Constants.MOD_ID)
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)

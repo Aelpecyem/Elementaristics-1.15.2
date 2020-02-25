@@ -1,4 +1,4 @@
-package de.aelpecyem.lib;
+package de.aelpecyem.elementaristics.lib;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistry;

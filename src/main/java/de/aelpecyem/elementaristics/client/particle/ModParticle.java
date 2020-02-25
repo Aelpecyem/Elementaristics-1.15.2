@@ -1,11 +1,8 @@
-package de.aelpecyem.client.particle;
+package de.aelpecyem.elementaristics.client.particle;
 
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import de.aelpecyem.lib.ColorUtil;
+import de.aelpecyem.elementaristics.lib.ColorUtil;
 import net.minecraft.client.particle.IParticleRenderType;
 import net.minecraft.client.particle.TexturedParticle;
-import net.minecraft.client.renderer.ActiveRenderInfo;
-import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 

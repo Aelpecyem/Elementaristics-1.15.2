@@ -1,6 +1,6 @@
-package de.aelpecyem.client.proxy;
+package de.aelpecyem.elementaristics.client.proxy;
 
-import de.aelpecyem.common.proxy.CommonProxy;
+import de.aelpecyem.elementaristics.common.proxy.CommonProxy;
 
 public class ClientProxy extends CommonProxy{
     @Override

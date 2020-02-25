@@ -1,7 +1,7 @@
-package de.aelpecyem.client.particle;
+package de.aelpecyem.elementaristics.client.particle;
 
 import com.mojang.blaze3d.platform.GlStateManager;
-import de.aelpecyem.client.particle.mode.ParticleMode;
+import de.aelpecyem.elementaristics.client.particle.mode.ParticleMode;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.IParticleRenderType;
 import net.minecraft.client.particle.Particle;
@@ -13,7 +13,6 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 

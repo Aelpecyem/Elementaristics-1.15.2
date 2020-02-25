@@ -1,7 +1,6 @@
-package de.aelpecyem.common.handler;
+package de.aelpecyem.elementaristics.common.handler;
 
-import de.aelpecyem.Elementaristics;
-import de.aelpecyem.lib.Constants;
+import de.aelpecyem.elementaristics.lib.Constants;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

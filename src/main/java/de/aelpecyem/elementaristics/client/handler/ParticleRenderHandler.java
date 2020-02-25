@@ -1,7 +1,7 @@
-package de.aelpecyem.client.handler;
+package de.aelpecyem.elementaristics.client.handler;
 
-import de.aelpecyem.client.particle.ModParticles;
-import de.aelpecyem.lib.Constants;
+import de.aelpecyem.elementaristics.client.particle.ModParticles;
+import de.aelpecyem.elementaristics.lib.Constants;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;

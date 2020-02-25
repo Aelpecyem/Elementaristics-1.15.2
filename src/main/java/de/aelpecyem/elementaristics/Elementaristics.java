@@ -1,10 +1,10 @@
-package de.aelpecyem;
+package de.aelpecyem.elementaristics;
 
-import de.aelpecyem.client.particle.ModParticles;
-import de.aelpecyem.client.proxy.ClientProxy;
-import de.aelpecyem.common.proxy.CommonProxy;
-import de.aelpecyem.lib.Constants;
-import de.aelpecyem.reg.ModRegistry;
+import de.aelpecyem.elementaristics.client.particle.ModParticles;
+import de.aelpecyem.elementaristics.client.proxy.ClientProxy;
+import de.aelpecyem.elementaristics.common.proxy.CommonProxy;
+import de.aelpecyem.elementaristics.lib.Constants;
+import de.aelpecyem.elementaristics.reg.ModRegistry;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;

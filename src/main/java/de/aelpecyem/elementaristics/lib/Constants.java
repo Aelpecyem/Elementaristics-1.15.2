@@ -1,4 +1,4 @@
-package de.aelpecyem.lib;
+package de.aelpecyem.elementaristics.lib;
 
 public class Constants {
     public static final String MOD_ID = "elementaristics";

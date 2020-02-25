@@ -1,8 +1,8 @@
-package de.aelpecyem.client.particle;
+package de.aelpecyem.elementaristics.client.particle;
 
-import de.aelpecyem.client.particle.mode.ParticleMode;
-import de.aelpecyem.client.particle.mode.ParticleModes;
-import de.aelpecyem.lib.Constants;
+import de.aelpecyem.elementaristics.client.particle.mode.ParticleMode;
+import de.aelpecyem.elementaristics.client.particle.mode.ParticleModes;
+import de.aelpecyem.elementaristics.lib.Constants;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.IParticleRenderType;
 import net.minecraft.client.particle.Particle;

@@ -1,4 +1,4 @@
-package de.aelpecyem.client.particle.mode;
+package de.aelpecyem.elementaristics.client.particle.mode;
 
 public class ParticleModes {
     public static final ParticleMode STANDARD = null;

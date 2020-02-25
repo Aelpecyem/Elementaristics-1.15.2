@@ -1,6 +1,6 @@
-package de.aelpecyem.client.particle.mode;
+package de.aelpecyem.elementaristics.client.particle.mode;
 
-import de.aelpecyem.client.particle.GlowParticle;
+import de.aelpecyem.elementaristics.client.particle.GlowParticle;
 import net.minecraft.client.particle.IParticleRenderType;
 
 public abstract class ParticleMode {

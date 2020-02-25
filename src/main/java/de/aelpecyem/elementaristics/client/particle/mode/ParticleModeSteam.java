@@ -1,24 +1,25 @@
-package de.aelpecyem.client.particle.mode;
+package de.aelpecyem.elementaristics.client.particle.mode;
 
-import de.aelpecyem.client.particle.GlowParticle;
-import de.aelpecyem.client.particle.ModParticles;
+import de.aelpecyem.elementaristics.client.particle.GlowParticle;
+import de.aelpecyem.elementaristics.client.particle.ModParticles;
+import de.aelpecyem.elementaristics.lib.ColorUtil;
 import net.minecraft.client.particle.IParticleRenderType;
 
 import java.awt.*;
 
-public class ParticleModeSpectrum extends ParticleMode {
+public class ParticleModeSteam extends ParticleMode {
     @Override
     public void setUp(GlowParticle particle) {
-        int addition = particle.getRandom().nextInt(200);
+        int addition = particle.getRandom().nextInt(30);
         particle.setAge(particle.getAge() + addition);
         particle.setMaxAge(particle.getMaxAge() + addition);
-        particle.setColor(0, 0, 1);
     }
 
     @Override
     public void tick(GlowParticle particle) {
-        float process = (particle.getAge() % 300) / 300F;
-        Color color = Color.getHSBColor(process, 1, 1);
+        int tickParts = particle.getAge() % 120;
+        float blend = (0.5F - Math.abs(0.5F - tickParts / 120F)) * 2F;//tickParts - 200;
+        Color color = ColorUtil.blend(new Color(particle.getRed(), particle.getGreen(), particle.getBlue()), new Color(0xD3FAFF), 1 - blend, blend);
         particle.setColor(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F);
     }
 
