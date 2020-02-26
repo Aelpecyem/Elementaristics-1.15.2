@@ -33,6 +33,7 @@ public class Elementaristics {
     public Elementaristics() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new ModRegistry());
     }
 
     private void setup(final FMLCommonSetupEvent event){

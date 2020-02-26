@@ -25,9 +25,24 @@ The Elementaristics are the arts of dancing to Nothingness and beyond; this incl
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
 # Here's another dependency
-[[dependencies.examplemod]]
+
+[[dependencies.elementaristics]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.15.2]"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.elementaristics]]
+    modId="patchouli"
+    mandatory=true
+    versionRange="[1.2,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.elementaristics]]
+    modId="curios"
+    mandatory=true
+    versionRange="[FORGE-1.15.2,)"
     ordering="NONE"
     side="BOTH"

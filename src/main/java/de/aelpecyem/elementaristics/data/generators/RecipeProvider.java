@@ -29,7 +29,7 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider{
     }
 
     private void registerMiscRecipes(Consumer<IFinishedRecipe> consumer){
-        ShapedRecipeBuilder.shapedRecipe(ModBlocks.stone_enriched)
+        ShapedRecipeBuilder.shapedRecipe(ModBlocks.stone_enriched, 8)
                 .patternLine("xxx")
                 .patternLine("x#x")
                 .patternLine("xxx")

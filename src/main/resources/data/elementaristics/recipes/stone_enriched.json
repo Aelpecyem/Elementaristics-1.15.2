@@ -15,6 +15,7 @@
     }
   },
   "result": {
-    "item": "elementaristics:stone_enriched"
+    "item": "elementaristics:stone_enriched",
+    "count": 8
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model":"elementaristics:block/stonebricks_enriched"
+      "model":"elementaristics:block/stone_enriched"
     }
   }
 }

@@ -19,5 +19,7 @@ public class DataGenerators {
         generator.addProvider(new RecipeProvider(generator));
         generator.addProvider(new SmeltingProvider(generator));
         generator.addProvider(new StonecuttingProvider(generator));
+
+        //generator.addProvider(new BlockstateProvider(generator, event.getExistingFileHelper()));
     }
 }

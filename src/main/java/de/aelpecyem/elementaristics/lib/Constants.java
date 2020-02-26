@@ -3,6 +3,7 @@ package de.aelpecyem.elementaristics.lib;
 public class Constants {
     public static final String MOD_ID = "elementaristics";
     public static final String MOD_NAME = "Elementaristics";
+    public static final String MOD_VERSION = "1.0";
 
     public static class BlockNames {
         public static final String STONE_ENRICHED = "stone_enriched";
