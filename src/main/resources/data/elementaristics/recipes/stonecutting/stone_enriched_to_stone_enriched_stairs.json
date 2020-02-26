@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "elementaristics:stone_enriched"
+  },
+  "result": "elementaristics:stone_enriched_stairs",
+  "count": 1
+}

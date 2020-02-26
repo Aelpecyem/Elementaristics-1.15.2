@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "elementaristics",
+  "pattern": [
+    "  Q",
+    " QQ",
+    "QQQ"
+  ],
+  "key": {
+    "Q": {
+      "item": "elementaristics:stonebricks_enriched"
+    }
+  },
+  "result": {
+    "item": "elementaristics:stonebricks_enriched_stairs",
+    "count": 4
+  }
+}

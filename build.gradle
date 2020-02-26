@@ -69,7 +69,7 @@ minecraft {
             args '--mod', 'elementaristics', '--all', '--output', file('src/generated/resources/')
 
             mods {
-                examplemod {
+                elementaristics {
                     source sourceSets.main
                 }
             }

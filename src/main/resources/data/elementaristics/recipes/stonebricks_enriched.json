@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "elementaristics",
+  "pattern": [
+    "QQ",
+    "QQ"
+  ],
+  "key": {
+    "Q": {
+      "item": "elementaristics:smooth_stone_enriched"
+    }
+  },
+  "result": {
+    "item": "elementaristics:stonebricks_enriched",
+    "count": 4
+  }
+}
