@@ -6,8 +6,10 @@ import de.aelpecyem.elementaristics.common.networking.PacketHandler;
 import de.aelpecyem.elementaristics.lib.Constants;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.world.RegisterDimensionsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
@@ -29,5 +31,11 @@ public class ModRegistry {
     @SubscribeEvent
     public void serverLoad(FMLServerStartingEvent event) {
         ModCommands.register(event.getCommandDispatcher());
+    }
+
+
+    @SubscribeEvent
+    public static void onDimensionRegistry(RegisterDimensionsEvent event) {
+        ModWorld.MIND = DimensionManager.registerOrGetDimension(ModWorld.MIND_DIMENSION_ID, ModWorld.MIND_DIMENSION, null, true);
     }
 }

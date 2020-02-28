@@ -1,6 +1,7 @@
 package de.aelpecyem.elementaristics.reg;
 
 import de.aelpecyem.elementaristics.Elementaristics;
+import de.aelpecyem.elementaristics.common.blocks.mind.BlockGreyMatter;
 import de.aelpecyem.elementaristics.lib.Constants;
 import de.aelpecyem.elementaristics.lib.Util;
 import net.minecraft.block.Block;
@@ -33,6 +34,9 @@ public class ModBlocks {
     @ObjectHolder(BlockNames.SMOOTH_STONE_ENRICHED + "_stairs") public static StairsBlock smooth_stone_enriched_stairs;
 
 
+    @ObjectHolder(BlockNames.GREY_MATTER) public static Block grey_matter;
+
+
     @SubscribeEvent
     public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
         Elementaristics.LOGGER.info("Registering blocks...");
@@ -49,6 +53,8 @@ public class ModBlocks {
         Util.register(r, new StairsBlock(() -> stone_enriched.getDefaultState(), builder), BlockNames.STONE_ENRICHED + "_stairs");
         Util.register(r, new StairsBlock(() -> stonebricks_enriched.getDefaultState(), builder), BlockNames.STONEBRICKS_ENRICHED + "_stairs");
         Util.register(r, new StairsBlock(() -> smooth_stone_enriched.getDefaultState(), builder), BlockNames.SMOOTH_STONE_ENRICHED + "_stairs");
+
+        Util.register(r, new BlockGreyMatter(), BlockNames.GREY_MATTER);
     }
 
     @SubscribeEvent
@@ -68,5 +74,8 @@ public class ModBlocks {
         Util.register(r, new BlockItem(stone_enriched_stairs, properties), BlockNames.STONE_ENRICHED + "_stairs");
         Util.register(r, new BlockItem(stonebricks_enriched_stairs, properties), BlockNames.STONEBRICKS_ENRICHED + "_stairs");
         Util.register(r, new BlockItem(smooth_stone_enriched_stairs, properties), BlockNames.SMOOTH_STONE_ENRICHED + "_stairs");
+
+
+        Util.register(r, new BlockItem(grey_matter, properties), BlockNames.GREY_MATTER);
     }
 }

@@ -2,6 +2,7 @@ package de.aelpecyem.elementaristics.client.particle;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import de.aelpecyem.elementaristics.client.particle.mode.ParticleMode;
+import de.aelpecyem.elementaristics.lib.Config;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.IParticleRenderType;
 import net.minecraft.client.particle.Particle;
@@ -75,7 +76,7 @@ public class ModParticles {
         private static final List<Particle> PARTICLES = new CopyOnWriteArrayList<>();
 
         public static void spawnParticle(Supplier<GlowParticle> particle) {
-           // if (!ModConfig.REDUCE_PARTICLES.get() || Minecraft.getInstance().world.rand.nextBoolean()) TODO add config
+            if (!Config.REDUCED_PARTICLES.get() || Minecraft.getInstance().world.rand.nextBoolean())
                 PARTICLES.add(particle.get());
         }
 
