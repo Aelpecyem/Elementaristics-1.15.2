@@ -36,6 +36,7 @@ public class EntityPlayerDummy extends CreatureEntity {
 
     @Override
     public void tick() {
+        System.out.println(getActivePotionEffect(ModPotions.intoxicated));
         if (getPlayer() == null){
             remove(false);
         }else if (getPlayer().dimension == ModWorld.MIND && getActivePotionEffect(ModPotions.intoxicated) != null){

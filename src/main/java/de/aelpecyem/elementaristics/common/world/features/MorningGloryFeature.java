@@ -36,7 +36,7 @@ public class MorningGloryFeature extends Feature<NoFeatureConfig> {
 
         if (foundSoil) {
             int maxBlocks = 2 + world.getRandom().nextInt(6);
-            for (BlockPos possiblePos : BlockPos.getAllInBoxMutable(mutable.add(-3, -1, -3), mutable.add(3, 2, 3))) {
+            for (BlockPos possiblePos : BlockPos.getAllInBoxMutable(mutable.add(-4, -1, -4), mutable.add(4, 2, 4))) {
                 for (Direction direction : DIRECTIONS) {
                     if (world.getRandom().nextBoolean() && blocksPlaced < maxBlocks && world.isAirBlock(possiblePos) && world.getBlockState(possiblePos.down()).canSustainPlant(world, pos, Direction.UP, (IPlantable) ModBlocks.morning_glory) && BlockMorningGlory.canAttachTo(world, possiblePos.offset(direction), direction.getOpposite())) {
                         blocksPlaced++;
