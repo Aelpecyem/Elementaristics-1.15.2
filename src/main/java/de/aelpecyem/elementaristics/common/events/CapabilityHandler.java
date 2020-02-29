@@ -6,7 +6,6 @@ import de.aelpecyem.elementaristics.common.networking.PacketHandler;
 import de.aelpecyem.elementaristics.common.networking.packets.player.PacketSyncMagan;
 import de.aelpecyem.elementaristics.common.networking.packets.player.PacketSyncMaganNBT;
 import de.aelpecyem.elementaristics.lib.Constants;
-import de.aelpecyem.elementaristics.reg.ModWorld;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraftforge.event.TickEvent;
@@ -22,10 +21,6 @@ public class CapabilityHandler {
         PlayerEntity player = event.player;
         IMaganCapability cap = player.getCapability(MaganCapability.Provider.MAGAN_CAPABILITY, null).orElse(null);
         if (cap != null && !player.world.isRemote && player instanceof ServerPlayerEntity){
-            if (player.getHealth() < 10 && ((ServerPlayerEntity) player).dimension != ModWorld.MIND){
-                player.setHealth(20);
-                player.changeDimension(ModWorld.MIND);
-            }
             if (cap.getMagan() < cap.getMaxMagan()) cap.fillMagan(cap.getMaganRegenRate());
             if (cap.isVeryDirty()){
                 PacketHandler.INSTANCE.sendTo(new PacketSyncMaganNBT(MaganCapability.Util.writeNBT(cap)), ((ServerPlayerEntity)player).connection.netManager, NetworkDirection.PLAY_TO_CLIENT);

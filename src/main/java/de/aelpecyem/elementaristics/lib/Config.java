@@ -16,19 +16,24 @@ public class Config {
     public static final String CATEGORY_SOULS = "souls";
     public static final String CATEGORY_MIND_DIMENSION = "mind_dimension";
 
+    private static final String CATEGORY_WORLDGEN = "world_gen";
+
+    public static ForgeConfigSpec.IntValue MORNING_GLORY_FREQUENCY;
+
 
     public static ForgeConfigSpec COMMON_CONFIG;
     private static final ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
 
     public static ForgeConfigSpec CLIENT_CONFIG;
     private static final ForgeConfigSpec.Builder CLIENT_BUILDER = new ForgeConfigSpec.Builder();
-    public static final String CATEGORY_PARTICLES = "particles";
+    private static final String CATEGORY_PARTICLES = "particles";
 
     public static ForgeConfigSpec.BooleanValue REDUCED_PARTICLES;
 
     static {
         COMMON_BUILDER.comment("General settings").push(CATEGORY_GENERAL);
         COMMON_BUILDER.pop();
+        worldGenConfig();
         COMMON_BUILDER.comment("Mind-dimension settings").push(CATEGORY_MIND_DIMENSION);
         COMMON_BUILDER.pop();
         COMMON_BUILDER.comment("Soul-mechanic settings").push(CATEGORY_SOULS);
@@ -40,6 +45,11 @@ public class Config {
         CLIENT_CONFIG = CLIENT_BUILDER.build();
     }
 
+    public static void worldGenConfig(){
+        COMMON_BUILDER.comment("World-gen settings").push(CATEGORY_WORLDGEN);
+        MORNING_GLORY_FREQUENCY = COMMON_BUILDER.comment("Determines the chance for Morning Glory plants to spawn (1 out of value)").defineInRange("morningGloryChance", 64, 0, Integer.MAX_VALUE);
+
+    }
     public static void particleConfig(){
         CLIENT_BUILDER.comment("Particle settings").push(CATEGORY_PARTICLES);
         REDUCED_PARTICLES = CLIENT_BUILDER.comment("Activate reduced particles").define("reducedParticles", false);

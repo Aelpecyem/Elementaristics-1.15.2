@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "elementaristics:stone_enriched",
+    "elementaristics:stonebricks_enriched",
+    "elementaristics:smooth_stone_enriched"
+  ]
+}

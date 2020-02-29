@@ -23,6 +23,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Supplier;
 
 public class ModParticles {
+    //@Todo: add particles properly, just as intended
     public void spawnParticle(GlowParticle particle) {
         Handler.spawnParticle(() -> particle);
     }

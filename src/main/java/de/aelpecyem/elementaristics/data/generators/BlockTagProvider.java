@@ -2,6 +2,7 @@ package de.aelpecyem.elementaristics.data.generators;
 
 import com.google.common.base.Predicate;
 import de.aelpecyem.elementaristics.lib.Constants;
+import de.aelpecyem.elementaristics.lib.ModTags;
 import de.aelpecyem.elementaristics.reg.ModBlocks;
 import net.minecraft.block.*;
 import net.minecraft.data.BlockTagsProvider;
@@ -22,6 +23,12 @@ public class BlockTagProvider extends BlockTagsProvider {
 
         getBuilder(BlockTags.STONE_BRICKS).add(ModBlocks.stonebricks_enriched);
 
+
+
+        getBuilder(ModTags.ENRICHED_STONE).add(ModBlocks.stone_enriched);
+        getBuilder(ModTags.ENRICHED_STONE).add(ModBlocks.stonebricks_enriched);
+        getBuilder(ModTags.ENRICHED_STONE).add(ModBlocks.smooth_stone_enriched);
+
         getBuilder(BlockTags.SLABS).add(registry.stream().filter(elem)
                 .filter(b -> b instanceof SlabBlock)
                 .sorted(Comparator.comparing(Block::getRegistryName))
@@ -39,6 +46,11 @@ public class BlockTagProvider extends BlockTagsProvider {
 
         getBuilder(BlockTags.FENCES).add(registry.stream().filter(elem)
                 .filter(b -> b instanceof FenceBlock)
+                .sorted(Comparator.comparing(Block::getRegistryName))
+                .toArray(Block[]::new));
+
+        getBuilder(BlockTags.SMALL_FLOWERS).add(registry.stream().filter(elem)
+                .filter(b -> b instanceof FlowerBlock)
                 .sorted(Comparator.comparing(Block::getRegistryName))
                 .toArray(Block[]::new));
 

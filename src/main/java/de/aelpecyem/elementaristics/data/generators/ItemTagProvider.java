@@ -1,5 +1,6 @@
 package de.aelpecyem.elementaristics.data.generators;
 
+import de.aelpecyem.elementaristics.lib.ModTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;
 import net.minecraft.tags.BlockTags;
@@ -18,7 +19,8 @@ public class ItemTagProvider extends ItemTagsProvider {
         this.copy(BlockTags.STAIRS, ItemTags.STAIRS);
         this.copy(BlockTags.WALLS, ItemTags.WALLS);
         this.copy(BlockTags.FENCES, ItemTags.FENCES);
-
+        this.copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
+        this.copy(ModTags.ENRICHED_STONE, ModTags.ENRICHED_STONE_ITEM);
 
     }
 

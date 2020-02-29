@@ -1,4 +1,30 @@
 {
+  "itemGroup.elementaristics": "Elementaristics",
+
   "_comment0": "COMMANDS",
-  "command.elem.set_magan.success": "Successfully set %s's Magan to %s"
+  "command.elem.set_magan.success": "Successfully set %s's Magan to %s",
+
+  "_comment1": "BIOMES",
+  "biome.elementaristics.decadent_quags": "Decadent Quags",
+  "biome.elementaristics.dreamy_thicket": "Dreamy Thicket",
+  "biome.elementaristics.mind_meadows": "Mindful Meadows",
+
+  "_comment2": "BLOCKS",
+  "block.elementaristics.stone_enriched": "Enriched Stone",
+  "block.elementaristics.stonebricks_enriched": "Enriched Stone Bricks",
+  "block.elementaristics.smooth_stone_enriched": "Smooth Enriched Stone",
+
+  "block.elementaristics.stone_enriched_slab": "Enriched Stone Slab",
+  "block.elementaristics.stonebricks_enriched_slab": "Enriched Stone Bricks Slab",
+  "block.elementaristics.smooth_stone_enriched_slab": "Smooth Enriched Stone Slab",
+
+  "block.elementaristics.stone_enriched_stairs": "Enriched Stone Stairs",
+  "block.elementaristics.stonebricks_enriched_stairs": "Enriched Stone Bricks Stairs",
+  "block.elementaristics.smooth_stone_enriched_stairs": "Smooth Enriched Stone Stairs",
+
+
+  "block.elementaristics.grey_matter": "Grey Matter",
+
+  "block.elementaristics.morning_glory": "Morning Glory"
+
 }

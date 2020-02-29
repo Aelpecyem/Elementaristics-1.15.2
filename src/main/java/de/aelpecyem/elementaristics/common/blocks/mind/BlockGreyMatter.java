@@ -4,8 +4,7 @@ import de.aelpecyem.elementaristics.lib.Constants;
 import de.aelpecyem.elementaristics.reg.ModWorld;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -16,7 +15,7 @@ import javax.annotation.Nullable;
 
 public class BlockGreyMatter extends Block {
     public BlockGreyMatter() {
-        super(Block.Properties.create(Material.WEB, MaterialColor.GRAY).hardnessAndResistance(1).lightValue(8));
+        super(Block.Properties.from(Blocks.GRAVEL).lightValue(8));
     }
 
     @Override

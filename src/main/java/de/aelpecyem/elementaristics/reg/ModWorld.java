@@ -6,15 +6,18 @@ import de.aelpecyem.elementaristics.common.world.biomes.DreamyThicketBiome;
 import de.aelpecyem.elementaristics.common.world.biomes.MindMeadowsBiome;
 import de.aelpecyem.elementaristics.common.world.biomes.ModBiome;
 import de.aelpecyem.elementaristics.common.world.dimensions.MindModDimension;
+import de.aelpecyem.elementaristics.common.world.features.MorningGloryFeature;
+import de.aelpecyem.elementaristics.lib.Config;
 import de.aelpecyem.elementaristics.lib.Constants;
+import de.aelpecyem.elementaristics.lib.Util;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
-import net.minecraft.world.gen.feature.MultipleWithChanceRandomFeatureConfig;
+import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.placement.ChanceConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
@@ -37,6 +40,10 @@ public class ModWorld {
     @ObjectHolder(Constants.MOD_ID + ":" + Constants.WorldNames.DREAMY_THICKET) public static Biome DREAMY_THICKET;
     @ObjectHolder(Constants.MOD_ID + ":" + Constants.WorldNames.DECADENT_QUAGS) public static Biome DECADENT_QUAGS;
 
+    @ObjectHolder(Constants.MOD_ID + ":" + Constants.BlockNames.MORNING_GLORY + "_feature") public static Feature MORNING_GLORY = new MorningGloryFeature(NoFeatureConfig::deserialize);
+
+
+    public static final ConfiguredFeature FLOWER_FEATURE = MORNING_GLORY.configure(IFeatureConfig.NO_FEATURE_CONFIG).createDecoratedFeature(Placement.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceConfig(Config.MORNING_GLORY_FREQUENCY.get())));
 
     @SubscribeEvent
     public static void registerModDimensions(final RegistryEvent.Register<ModDimension> event) {
@@ -48,6 +55,15 @@ public class ModWorld {
         event.getRegistry().register(new MindMeadowsBiome().setRegistryName(Constants.WorldNames.MIND_MEADOWS));
         event.getRegistry().register(new DreamyThicketBiome().setRegistryName(Constants.WorldNames.DREAMY_THICKET));
         event.getRegistry().register(new DecadentQuagsBiome().setRegistryName(Constants.WorldNames.DECADENT_QUAGS));
+
+        Biomes.DARK_FOREST.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FLOWER_FEATURE);
+        Biomes.DARK_FOREST_HILLS.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FLOWER_FEATURE);
+
+    }
+
+    @SubscribeEvent
+    public static void registerOrAddFeatures(final RegistryEvent.Register<Feature<?>> event) {
+        Util.register(event.getRegistry(), MORNING_GLORY, Constants.BlockNames.MORNING_GLORY + "_feature");
     }
 
     public static void addGrass(Biome biome){

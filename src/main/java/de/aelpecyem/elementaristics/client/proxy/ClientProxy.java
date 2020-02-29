@@ -1,6 +1,7 @@
 package de.aelpecyem.elementaristics.client.proxy;
 
 import de.aelpecyem.elementaristics.common.proxy.CommonProxy;
+import de.aelpecyem.elementaristics.reg.ModEntities;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
@@ -12,6 +13,7 @@ public class ClientProxy extends CommonProxy{
     @Override
     public void init() {
         super.init();
+        ModEntities.registerRenderers();
     }
 
     @Override
