@@ -1,9 +1,11 @@
 package de.aelpecyem.elementaristics.client.handler;
 
 import de.aelpecyem.elementaristics.lib.Constants;
+import de.aelpecyem.elementaristics.reg.ModBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
+import net.minecraft.world.FoliageColors;
 import net.minecraft.world.GrassColors;
 import net.minecraft.world.biome.BiomeColors;
 import net.minecraftforge.api.distmarker.Dist;
@@ -19,6 +21,8 @@ public class ColorHandler {
     @SubscribeEvent
     public static void colorBlocks(ColorHandlerEvent.Block event) {
         event.getBlockColors().register((state, light, pos, layer) -> light != null && pos != null ? BiomeColors.getGrassColor(light, pos) : GrassColors.get(0.5D, 1.0D), Blocks.GRASS_BLOCK);
+
+        event.getBlockColors().register((state, light, pos, layer) -> light != null && pos != null ? BiomeColors.getFoliageColor(light, pos) : FoliageColors.getDefault(), ModBlocks.morning_glory);
     }
 
     @SubscribeEvent

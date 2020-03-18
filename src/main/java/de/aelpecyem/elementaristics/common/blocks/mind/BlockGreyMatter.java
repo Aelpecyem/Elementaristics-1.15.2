@@ -22,7 +22,7 @@ public class BlockGreyMatter extends Block {
     public void harvestBlock(World world, PlayerEntity player, BlockPos pos, BlockState block, @Nullable TileEntity tile, ItemStack stack) {
         super.harvestBlock(world, player, pos, block, tile, stack);
         if (player.dimension == ModWorld.MIND) {
-            player.attackEntityFrom(Constants.DamageSources.HEART_ATTACK, 2F);
+            player.attackEntityFrom(Constants.DamageSources.HEART_ATTACK, 4F);
         }
     }
 }
