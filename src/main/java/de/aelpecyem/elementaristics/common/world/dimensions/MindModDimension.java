@@ -13,4 +13,5 @@ public class MindModDimension extends ModDimension {
     public BiFunction<World, DimensionType, ? extends Dimension> getFactory() {
         return MindDimension::new;
     }
+
 }

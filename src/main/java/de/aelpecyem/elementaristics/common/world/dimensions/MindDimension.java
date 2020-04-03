@@ -1,5 +1,10 @@
 package de.aelpecyem.elementaristics.common.world.dimensions;
 
+import com.mojang.blaze3d.platform.GlStateManager;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.RenderSkybox;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -7,7 +12,10 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.Dimension;
 import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.dimension.OverworldDimension;
 import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraftforge.client.IRenderHandler;
+import org.lwjgl.opengl.GL11;
 
 import javax.annotation.Nullable;
 
@@ -19,6 +27,20 @@ public class MindDimension extends Dimension {
     @Override
     public ChunkGenerator<?> createChunkGenerator() {
         return new MindBiomeChunkGenerator(world, new MindBiomeProvider(new MindBiomeProviderSettings(world.getWorldInfo())), new MindGenerationSettings());
+    }
+
+    @Nullable
+    @Override
+    public IRenderHandler getCloudRenderer() {
+        return super.getCloudRenderer();
+    }
+
+    @Nullable
+    @Override
+    public IRenderHandler getSkyRenderer() {
+        return (i, v, clientWorld, minecraft) -> {
+            //do fancy shit here maybe
+        };
     }
 
     @Nullable

@@ -3,6 +3,7 @@ package de.aelpecyem.elementaristics.client.handler;
 import de.aelpecyem.elementaristics.client.particle.ModParticles;
 import de.aelpecyem.elementaristics.lib.Constants;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderSkybox;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RenderWorldLastEvent;

@@ -3,6 +3,7 @@ package de.aelpecyem.elementaristics.common.entity;
 import de.aelpecyem.elementaristics.reg.ModEntities;
 import de.aelpecyem.elementaristics.reg.ModPotions;
 import de.aelpecyem.elementaristics.reg.ModWorld;
+import net.minecraft.command.impl.ForceLoadCommand;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Pose;
 import net.minecraft.entity.SpawnReason;
@@ -15,7 +16,13 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.server.management.PreYggdrasilConverter;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.storage.ChunkLoader;
+import net.minecraft.world.chunk.storage.ChunkLoaderUtil;
+import net.minecraft.world.server.ChunkManager;
+import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.server.TicketType;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
@@ -36,13 +43,20 @@ public class EntityPlayerDummy extends CreatureEntity {
 
     @Override
     public void tick() {
-        System.out.println(getActivePotionEffect(ModPotions.intoxicated));
-        if (getPlayer() == null){
-            remove(false);
-        }else if (getPlayer().dimension == ModWorld.MIND && getActivePotionEffect(ModPotions.intoxicated) != null){
-            setPose(Pose.SLEEPING);
-        }else{
-            remove(false);
+        if (isServerWorld()){
+            ((ServerWorld)world).getChunkProvider().registerTicket(TicketType.PLAYER, new ChunkPos(getPosition()), 10, new ChunkPos(getPosition()));
+        }
+        if (world.isRemote) {
+            System.out.println(getActivePotionEffect(ModPotions.intoxicated));
+            if (getPlayer() == null) {
+                System.out.println("mama mia");
+                remove(false);
+            } else if (getPlayer().dimension == ModWorld.MIND && getActivePotionEffect(ModPotions.intoxicated) != null) {
+                setPose(Pose.SLEEPING);
+            } else {
+                System.out.println("oofio");
+                remove(false);
+            }
         }
         super.tick();
     }
@@ -120,16 +134,20 @@ public class EntityPlayerDummy extends CreatureEntity {
     }
 
     public static void createDummyAndSendPlayerAway(World world, PlayerEntity player){
-        EntityPlayerDummy dummy = (EntityPlayerDummy) ModEntities.PLAYER_DUMMY.spawn(world, null, player, player.getPosition(), SpawnReason.TRIGGERED, false, false);
-        dummy.bedDirection = player.getBedDirection();
-        dummy.setPosition(player.getPositionVec().x, player.getPositionVec().y, player.getPositionVec().z);
-        dummy.setPlayer(player);
         EffectInstance playerEffect = player.getActivePotionEffect(ModPotions.intoxicated);
         if (playerEffect != null) {
             EffectInstance effect = new EffectInstance(ModPotions.intoxicated, playerEffect.getDuration() * (playerEffect.getAmplifier() + 1), 0, true, true);
-            dummy.addPotionEffect(effect);
             player.removeActivePotionEffect(ModPotions.intoxicated);
+            EntityPlayerDummy dummy = new EntityPlayerDummy(player.world);
+            dummy.bedDirection = player.getBedDirection();
+            dummy.setPosition(player.getPositionVec().x, player.getPositionVec().y, player.getPositionVec().z);
             player.changeDimension(ModWorld.MIND);
+            dummy.setPlayer(player);
+            dummy.addPotionEffect(effect);
+            world.addEntity(dummy);
+            if (dummy.isServerWorld()){
+                ((ServerWorld)dummy.world).forceChunk(dummy.chunkCoordX, dummy.chunkCoordZ, true);// .getChunkProvider().registerTicket(TicketType.FORCED, new ChunkPos(dummy.getPosition()), 0, new ChunkPos(dummy.getPosition()));
+            }
         }
     }
 }

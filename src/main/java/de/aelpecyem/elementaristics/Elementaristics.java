@@ -1,5 +1,6 @@
 package de.aelpecyem.elementaristics;
 
+import com.mojang.datafixers.util.Pair;
 import de.aelpecyem.elementaristics.client.particle.ModParticles;
 import de.aelpecyem.elementaristics.client.proxy.ClientProxy;
 import de.aelpecyem.elementaristics.common.proxy.CommonProxy;
@@ -9,6 +10,10 @@ import de.aelpecyem.elementaristics.reg.ModRegistry;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Rotation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -19,6 +24,11 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import vazkii.patchouli.api.IMultiblock;
+import vazkii.patchouli.common.multiblock.MultiblockRegistry;
+
+import javax.annotation.Nullable;
+import java.util.Collection;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Constants.MOD_ID)

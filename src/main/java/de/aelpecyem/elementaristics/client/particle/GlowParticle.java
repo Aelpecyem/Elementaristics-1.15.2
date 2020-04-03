@@ -176,7 +176,7 @@ public class GlowParticle extends ModParticle { //todo work on all that stuff la
 
     @Override
     public ResourceLocation getTexture() {
-        return new ResourceLocation(Constants.MOD_ID, "textures/particle/glow.png");//ParticleTexture.MAGIC_SMOKE[currentFrame];
+        return new ResourceLocation(Constants.MOD_ID, "textures/particle/glow.png");
     }
 
     public enum EnumFadeMode {

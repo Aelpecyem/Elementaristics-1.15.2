@@ -5,13 +5,12 @@ import de.aelpecyem.elementaristics.common.blocks.mind.BlockGreyMatter;
 import de.aelpecyem.elementaristics.common.blocks.plant.BlockMorningGlory;
 import de.aelpecyem.elementaristics.lib.Constants;
 import de.aelpecyem.elementaristics.lib.Util;
-import net.minecraft.block.Block;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.StairsBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.potion.Effects;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -38,6 +37,7 @@ public class ModBlocks {
     @ObjectHolder(BlockNames.GREY_MATTER) public static Block grey_matter;
 
     @ObjectHolder(BlockNames.MORNING_GLORY) public static Block morning_glory;
+    @ObjectHolder(BlockNames.NEUROSE) public static Block neurose; //TODO: add MIND-Blocks
 
 
     @SubscribeEvent
@@ -60,6 +60,8 @@ public class ModBlocks {
         Util.register(r, new BlockGreyMatter(), BlockNames.GREY_MATTER);
 
         Util.register(r, new BlockMorningGlory(), BlockNames.MORNING_GLORY);
+        builder = Block.Properties.from(Blocks.POPPY);
+        Util.register(r, new FlowerBlock(Effects.GLOWING, 10, builder.lightValue(8)), BlockNames.NEUROSE);
     }
 
     @SubscribeEvent
@@ -84,5 +86,6 @@ public class ModBlocks {
         Util.register(r, new BlockItem(grey_matter, properties), BlockNames.GREY_MATTER);
 
         Util.register(r, new BlockItem(morning_glory, properties), BlockNames.MORNING_GLORY);
+        Util.register(r, new BlockItem(neurose, properties), BlockNames.NEUROSE);
     }
 }

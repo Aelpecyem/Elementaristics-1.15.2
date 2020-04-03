@@ -23,4 +23,5 @@ public class MindBiomeProviderSettings implements IBiomeProviderSettings {
     public MindBiomeProviderSettings getGeneratorSettings() {
         return this.generatorSettings;
     }
+
 }

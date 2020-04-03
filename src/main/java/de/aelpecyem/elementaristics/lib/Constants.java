@@ -19,6 +19,7 @@ public class Constants {
         public static final String GREY_MATTER = "grey_matter";
 
         public static final String MORNING_GLORY = "morning_glory";
+        public static final String NEUROSE = "neurose";
     }
 
     public static class WorldNames {
