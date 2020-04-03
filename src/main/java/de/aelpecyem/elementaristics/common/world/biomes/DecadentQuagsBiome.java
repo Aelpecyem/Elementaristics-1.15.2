@@ -10,7 +10,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
 public class DecadentQuagsBiome extends ModBiome {
     public DecadentQuagsBiome() {
-        super(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG, Category.SWAMP, -0.25F, 0.08F, 0.8F, 6365237, 6365237);
+        super(SurfaceBuilder.DEFAULT, Category.SWAMP, -0.25F, 0.08F, 0.8F, 6365237, 6365237);
     }
 
     @Override

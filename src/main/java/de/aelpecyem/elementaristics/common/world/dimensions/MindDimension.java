@@ -39,7 +39,7 @@ public class MindDimension extends Dimension {
     @Override
     public IRenderHandler getSkyRenderer() {
         return (i, v, clientWorld, minecraft) -> {
-            //do fancy shit here maybe
+            //todo fancy shit here maybe
         };
     }
 

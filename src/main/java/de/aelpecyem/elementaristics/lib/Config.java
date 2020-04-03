@@ -47,7 +47,7 @@ public class Config {
 
     public static void worldGenConfig(){
         COMMON_BUILDER.comment("World-gen settings").push(CATEGORY_WORLDGEN);
-        MORNING_GLORY_FREQUENCY = COMMON_BUILDER.comment("Determines the chance for Morning Glory plants to spawn (1 out of value)").defineInRange("morningGloryChance", 64, 0, Integer.MAX_VALUE);
+        MORNING_GLORY_FREQUENCY = COMMON_BUILDER.comment("Determines the chance for the possibility for Morning Glory plants to spawn in a chunk (1 out of value)").defineInRange("morningGloryChance", 32, 0, Integer.MAX_VALUE);
 
     }
     public static void particleConfig(){

@@ -2,8 +2,8 @@
   "ambientocclusion": false,
   "textures": {
     "particle": "block/vine",
-    "vine": "block/vine",
-    "flower": "elementaristics:item/bundle_herbs"
+    "vine": "elementaristics:block/vine_short",
+    "flower": "elementaristics:block/morning_glory_flowers_short"
   },
   "elements": [
     {

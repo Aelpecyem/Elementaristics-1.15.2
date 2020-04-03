@@ -3,7 +3,7 @@
   "textures": {
     "particle": "block/vine",
     "vine": "block/vine",
-    "flower": "elementaristics:item/bundle_herbs"
+    "flower": "elementaristics:block/morning_glory_flowers"
   },
   "elements": [
     {   "from": [ 0, 0, 0.8 ],

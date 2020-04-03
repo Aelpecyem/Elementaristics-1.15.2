@@ -33,11 +33,14 @@ public class ModBlocks {
     @ObjectHolder(BlockNames.STONEBRICKS_ENRICHED + "_stairs") public static StairsBlock stonebricks_enriched_stairs;
     @ObjectHolder(BlockNames.SMOOTH_STONE_ENRICHED + "_stairs") public static StairsBlock smooth_stone_enriched_stairs;
 
-
-    @ObjectHolder(BlockNames.GREY_MATTER) public static Block grey_matter;
-
     @ObjectHolder(BlockNames.MORNING_GLORY) public static Block morning_glory;
-    @ObjectHolder(BlockNames.NEUROSE) public static Block neurose; //TODO: add MIND-Blocks
+
+    @ObjectHolder(BlockNames.SOIL) public static Block soil;
+    @ObjectHolder(BlockNames.SOIL_HARDENED) public static Block soil_hardened;
+    @ObjectHolder(BlockNames.ROOTS) public static Block roots;
+
+    @ObjectHolder(BlockNames.NEUROSE) public static Block neurose; //all those flowers come later
+    @ObjectHolder(BlockNames.GREY_MATTER) public static Block grey_matter;
 
 
     @SubscribeEvent
@@ -57,9 +60,15 @@ public class ModBlocks {
         Util.register(r, new StairsBlock(() -> stonebricks_enriched.getDefaultState(), builder), BlockNames.STONEBRICKS_ENRICHED + "_stairs");
         Util.register(r, new StairsBlock(() -> smooth_stone_enriched.getDefaultState(), builder), BlockNames.SMOOTH_STONE_ENRICHED + "_stairs");
 
-        Util.register(r, new BlockGreyMatter(), BlockNames.GREY_MATTER);
 
         Util.register(r, new BlockMorningGlory(), BlockNames.MORNING_GLORY);
+
+
+        Util.register(r, new Block(Block.Properties.from(Blocks.GRASS_BLOCK)), BlockNames.SOIL);
+        Util.register(r, new Block(Block.Properties.from(Blocks.DIRT)), BlockNames.SOIL_HARDENED);
+        Util.register(r, new Block(Block.Properties.from(Blocks.STONE)), BlockNames.ROOTS);
+
+        Util.register(r, new BlockGreyMatter(), BlockNames.GREY_MATTER);
         builder = Block.Properties.from(Blocks.POPPY);
         Util.register(r, new FlowerBlock(Effects.GLOWING, 10, builder.lightValue(8)), BlockNames.NEUROSE);
     }
@@ -84,6 +93,8 @@ public class ModBlocks {
 
 
         Util.register(r, new BlockItem(grey_matter, properties), BlockNames.GREY_MATTER);
+        Util.register(r, new BlockItem(soil_hardened, properties), BlockNames.SOIL_HARDENED);
+        Util.register(r, new BlockItem(soil, properties), BlockNames.SOIL);
 
         Util.register(r, new BlockItem(morning_glory, properties), BlockNames.MORNING_GLORY);
         Util.register(r, new BlockItem(neurose, properties), BlockNames.NEUROSE);

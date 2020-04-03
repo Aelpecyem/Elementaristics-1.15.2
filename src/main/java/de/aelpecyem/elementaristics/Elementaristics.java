@@ -30,7 +30,6 @@ import vazkii.patchouli.common.multiblock.MultiblockRegistry;
 import javax.annotation.Nullable;
 import java.util.Collection;
 
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod(Constants.MOD_ID)
 public class Elementaristics {
     public static final Logger LOGGER = LogManager.getLogger();

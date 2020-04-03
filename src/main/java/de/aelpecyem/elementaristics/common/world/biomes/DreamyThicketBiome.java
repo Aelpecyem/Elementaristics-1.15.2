@@ -5,7 +5,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
 public class DreamyThicketBiome extends ModBiome {
     public DreamyThicketBiome() {
-        super(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG, Category.FOREST, 0.23F, 0.1F, 0.8F, 0x2F2878, 0x00B99C);
+        super(SurfaceBuilder.DEFAULT, Category.FOREST, 0.23F, 0.1F, 0.8F, 0x2F2878, 0x00B99C);
     }
 
     @Override

@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "block/vine",
+    "layer1": "elementaristics:block/morning_glory_flowers"
+  }
+}

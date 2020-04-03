@@ -105,7 +105,7 @@ public class BlockMorningGlory extends FlowerBlock {
 
 
     public static boolean isGroundValid(BlockState state, IWorldReader world, BlockPos pos) {
-        return world.getBlockState(pos.down()).getBlock().canSustainPlant(state, world, pos, Direction.UP, (IPlantable) ModBlocks.morning_glory);
+        return world.getBlockState(pos.down()).getBlock().canSustainPlant(world.getBlockState(pos.down()), world, pos, Direction.UP, (IPlantable) ModBlocks.morning_glory);
     }
 
     @Override

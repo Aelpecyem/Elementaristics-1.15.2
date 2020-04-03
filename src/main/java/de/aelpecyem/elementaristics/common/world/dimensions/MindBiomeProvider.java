@@ -44,7 +44,6 @@ public class MindBiomeProvider extends BiomeProvider {
                 this.topBlocksCache.add(biome.getSurfaceBuilderConfig().getTop());
             }
         }
-
         return this.topBlocksCache;
     }
 

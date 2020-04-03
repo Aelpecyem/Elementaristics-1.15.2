@@ -6,6 +6,6 @@ import net.minecraft.world.gen.GenerationSettings;
 public class MindGenerationSettings extends GenerationSettings {
     public MindGenerationSettings() {
         super();
-        defaultBlock = ModBlocks.stone_enriched.getDefaultState();
+        defaultBlock = ModBlocks.roots.getDefaultState();
     }
 }

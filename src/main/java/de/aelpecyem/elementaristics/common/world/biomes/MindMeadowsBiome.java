@@ -4,7 +4,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
 public class MindMeadowsBiome extends ModBiome {
     public MindMeadowsBiome() {
-        super(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG, Category.PLAINS, 0.17F, 0.15F, 0.8F, 0x2F2878, 0x0ef9cd);
+        super(SurfaceBuilder.DEFAULT, Category.PLAINS, 0.17F, 0.15F, 0.8F, 0x2F2878, 0x0ef9cd);
     }
 
     @Override

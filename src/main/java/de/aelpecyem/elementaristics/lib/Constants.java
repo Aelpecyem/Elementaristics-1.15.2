@@ -17,6 +17,9 @@ public class Constants {
         public static final String SMOOTH_STONE_ENRICHED = "smooth_stone_enriched";
 
         public static final String GREY_MATTER = "grey_matter";
+        public static final String SOIL = "soil";
+        public static final String SOIL_HARDENED = "soil_hardened";
+        public static final String ROOTS = "roots";
 
         public static final String MORNING_GLORY = "morning_glory";
         public static final String NEUROSE = "neurose";

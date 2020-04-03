@@ -3,6 +3,7 @@ package de.aelpecyem.elementaristics.common.world.features;
 import com.mojang.datafixers.Dynamic;
 import de.aelpecyem.elementaristics.common.blocks.plant.BlockMorningGlory;
 import de.aelpecyem.elementaristics.reg.ModBlocks;
+import net.minecraft.block.LogBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
@@ -38,8 +39,9 @@ public class MorningGloryFeature extends Feature<NoFeatureConfig> {
             int maxBlocks = 2 + world.getRandom().nextInt(6);
             for (BlockPos possiblePos : BlockPos.getAllInBoxMutable(mutable.add(-4, -1, -4), mutable.add(4, 2, 4))) {
                 for (Direction direction : DIRECTIONS) {
-                    if (world.getRandom().nextBoolean() && blocksPlaced < maxBlocks && world.isAirBlock(possiblePos) && world.getBlockState(possiblePos.down()).canSustainPlant(world, pos, Direction.UP, (IPlantable) ModBlocks.morning_glory) && BlockMorningGlory.canAttachTo(world, possiblePos.offset(direction), direction.getOpposite())) {
+                    if (world.getRandom().nextBoolean() && blocksPlaced < maxBlocks && world.isAirBlock(possiblePos) && world.getBlockState(possiblePos.down()).canSustainPlant(world, pos, Direction.UP, (IPlantable) ModBlocks.morning_glory) && BlockMorningGlory.canAttachTo(world, possiblePos.offset(direction), direction.getOpposite()) && world.getBlockState(possiblePos.offset(direction)).getBlock() instanceof LogBlock) {
                         blocksPlaced++;
+                        System.out.println(possiblePos);
                         world.setBlockState(possiblePos, ModBlocks.morning_glory.getDefaultState().with(BlockMorningGlory.getPropertyFor(direction), true), 2);
                     }
                 }
