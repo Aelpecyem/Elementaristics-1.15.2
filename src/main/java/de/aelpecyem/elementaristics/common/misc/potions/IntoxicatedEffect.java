@@ -8,8 +8,8 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.EffectType;
 import net.minecraft.potion.Effects;
 
-public class EffectIntoxicated extends ModEffect {
-    public EffectIntoxicated() {
+public class IntoxicatedEffect extends ModEffect {
+    public IntoxicatedEffect() {
         super(EffectType.NEUTRAL, 12858015);
     }
 

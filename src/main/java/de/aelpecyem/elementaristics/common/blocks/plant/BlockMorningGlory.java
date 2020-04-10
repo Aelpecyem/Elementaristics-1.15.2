@@ -92,7 +92,7 @@ public class BlockMorningGlory extends FlowerBlock {
 
     @Override
     public Effect getStewEffect() {
-        return ModPotions.intoxicated;
+        return ModPotions.INTOXICATED.get();
     }
 
     public boolean isValidPosition(BlockState state, IWorldReader world, BlockPos pos) {
@@ -105,7 +105,7 @@ public class BlockMorningGlory extends FlowerBlock {
 
 
     public static boolean isGroundValid(BlockState state, IWorldReader world, BlockPos pos) {
-        return world.getBlockState(pos.down()).getBlock().canSustainPlant(world.getBlockState(pos.down()), world, pos, Direction.UP, (IPlantable) ModBlocks.morning_glory);
+        return world.getBlockState(pos.down()).getBlock().canSustainPlant(world.getBlockState(pos.down()), world, pos, Direction.UP, (IPlantable) ModBlocks.morning_glory.get());
     }
 
     @Override
@@ -171,44 +171,6 @@ public class BlockMorningGlory extends FlowerBlock {
     public BlockState updatePostPlacement(BlockState state, Direction direction, BlockState otherState, IWorld world, BlockPos pos, BlockPos otherPos) {
         BlockState blockstate = this.getStateAttachedSides(state, world, pos);
         return this.isPosValid(blockstate, world, pos) ? blockstate : Blocks.AIR.getDefaultState();
-    }
-
-    private BlockState func_196544_a(BlockState state, BlockState otherState, Random random) {
-        Iterator var4 = Direction.Plane.HORIZONTAL.iterator();
-
-        while (var4.hasNext()) {
-            Direction direction = (Direction) var4.next();
-            if (random.nextBoolean()) {
-                BooleanProperty booleanproperty = getPropertyFor(direction);
-                if (state.get(booleanproperty)) {
-                    otherState = otherState.with(booleanproperty, true);
-                }
-            }
-        }
-
-        return otherState;
-    }
-
-    private boolean hasWallAttachedto(BlockState state) {
-        return state.get(NORTH) || state.get(EAST) || state.get(SOUTH) || state.get(WEST);
-    }
-
-    private boolean hasFreeBlockForPlant(IBlockReader world, BlockPos pos) {
-        Iterable<BlockPos> iterable = BlockPos.getAllInBoxMutable(pos.getX() - 4, pos.getY() - 1, pos.getZ() - 4, pos.getX() + 4, pos.getY() + 1, pos.getZ() + 4);
-        int j = 5;
-        Iterator var6 = iterable.iterator();
-
-        while (var6.hasNext()) {
-            BlockPos blockpos = (BlockPos) var6.next();
-            if (world.getBlockState(blockpos).getBlock() == this) {
-                --j;
-                if (j <= 0) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
     }
 
     public boolean isReplaceable(BlockState p_196253_1_, BlockItemUseContext p_196253_2_) {

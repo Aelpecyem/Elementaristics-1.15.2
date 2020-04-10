@@ -21,13 +21,13 @@ public class BlockTagProvider extends BlockTagsProvider {
     protected void registerTags() {
         Predicate<Block> elem = b -> Constants.MOD_ID.equals(b.getRegistryName().getNamespace());
 
-        getBuilder(BlockTags.STONE_BRICKS).add(ModBlocks.stonebricks_enriched);
+        getBuilder(BlockTags.STONE_BRICKS).add(ModBlocks.stonebricks_enriched.get());
 
 
 
-        getBuilder(ModTags.ENRICHED_STONE).add(ModBlocks.stone_enriched);
-        getBuilder(ModTags.ENRICHED_STONE).add(ModBlocks.stonebricks_enriched);
-        getBuilder(ModTags.ENRICHED_STONE).add(ModBlocks.smooth_stone_enriched);
+        getBuilder(ModTags.ENRICHED_STONE).add(ModBlocks.stone_enriched.get());
+        getBuilder(ModTags.ENRICHED_STONE).add(ModBlocks.stonebricks_enriched.get());
+        getBuilder(ModTags.ENRICHED_STONE).add(ModBlocks.smooth_stone_enriched.get());
 
         getBuilder(BlockTags.SLABS).add(registry.stream().filter(elem)
                 .filter(b -> b instanceof SlabBlock)

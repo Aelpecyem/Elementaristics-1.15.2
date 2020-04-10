@@ -31,7 +31,7 @@ public class EntityPlayerDummy extends CreatureEntity {
     private static final DataParameter<String> PLAYER_UUID = EntityDataManager.createKey(EntityPlayerDummy.class, DataSerializers.STRING);
     public Direction bedDirection = Direction.EAST;
     public EntityPlayerDummy(World world) {
-        super(ModEntities.PLAYER_DUMMY, world);
+        super(ModEntities.PLAYER_DUMMY.get(), world);
     }
 
 
@@ -47,11 +47,11 @@ public class EntityPlayerDummy extends CreatureEntity {
             ((ServerWorld)world).getChunkProvider().registerTicket(TicketType.PLAYER, new ChunkPos(getPosition()), 10, new ChunkPos(getPosition()));
         }
         if (world.isRemote) {
-            System.out.println(getActivePotionEffect(ModPotions.intoxicated));
+            System.out.println(getActivePotionEffect(ModPotions.INTOXICATED.get()));
             if (getPlayer() == null) {
                 System.out.println("mama mia");
                 remove(false);
-            } else if (getPlayer().dimension == ModWorld.MIND && getActivePotionEffect(ModPotions.intoxicated) != null) {
+            } else if (getPlayer().dimension == ModWorld.MIND && getActivePotionEffect(ModPotions.INTOXICATED.get()) != null) {
                 setPose(Pose.SLEEPING);
             } else {
                 System.out.println("oofio");
@@ -134,10 +134,10 @@ public class EntityPlayerDummy extends CreatureEntity {
     }
 
     public static void createDummyAndSendPlayerAway(World world, PlayerEntity player){
-        EffectInstance playerEffect = player.getActivePotionEffect(ModPotions.intoxicated);
+        EffectInstance playerEffect = player.getActivePotionEffect(ModPotions.INTOXICATED.get());
         if (playerEffect != null) {
-            EffectInstance effect = new EffectInstance(ModPotions.intoxicated, playerEffect.getDuration() * (playerEffect.getAmplifier() + 1), 0, true, true);
-            player.removeActivePotionEffect(ModPotions.intoxicated);
+            EffectInstance effect = new EffectInstance(ModPotions.INTOXICATED.get(), playerEffect.getDuration() * (playerEffect.getAmplifier() + 1), 0, true, true);
+            player.removeActivePotionEffect(ModPotions.INTOXICATED.get());
             EntityPlayerDummy dummy = new EntityPlayerDummy(player.world);
             dummy.bedDirection = player.getBedDirection();
             dummy.setPosition(player.getPositionVec().x, player.getPositionVec().y, player.getPositionVec().z);

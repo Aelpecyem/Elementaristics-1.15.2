@@ -14,8 +14,8 @@ import java.util.List;
 import java.util.Set;
 
 public class MindBiomeProvider extends BiomeProvider {
-    private static final List<Biome> SPAWN = Collections.singletonList(ModWorld.MIND_MEADOWS);
-    private static final Set<Biome> BIOMES = ImmutableSet.of(ModWorld.MIND_MEADOWS, ModWorld.DREAMY_THICKET, ModWorld.DECADENT_QUAGS);
+    private static final List<Biome> SPAWN = Collections.singletonList(ModWorld.FIELDS_REASON.get());
+    private static final Set<Biome> BIOMES = ImmutableSet.of(ModWorld.FIELDS_REASON.get(), ModWorld.FIELDS_PASSION.get(), ModWorld.FIELDS_DECADENCE.get());
     private final Layer genBiomes;
     public MindBiomeProvider(MindBiomeProviderSettings settings) {
         super(BIOMES);

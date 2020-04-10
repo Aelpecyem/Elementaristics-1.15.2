@@ -41,13 +41,13 @@ public class LayerCreator {
 
     public static class MindLayer implements IAreaTransformer0 {
 
-        private static final int SPECIAL_BIOME_CHANCE = 12;
+        private static final int SPECIAL_BIOME_CHANCE = 24;
         protected LazyInt[] commonBiomes = new LazyInt[]{
-                new LazyInt(() -> Registry.BIOME.getId(ModWorld.MIND_MEADOWS)),
-                new LazyInt(() -> Registry.BIOME.getId(ModWorld.DREAMY_THICKET))
+                new LazyInt(() -> Registry.BIOME.getId(ModWorld.FIELDS_REASON.get())),
+                new LazyInt(() -> Registry.BIOME.getId(ModWorld.FIELDS_PASSION.get()))
         };
         protected LazyInt[] rareBiomes = (new LazyInt[]{
-                new LazyInt(() -> Registry.BIOME.getId(ModWorld.DECADENT_QUAGS))
+                new LazyInt(() -> Registry.BIOME.getId(ModWorld.FIELDS_DECADENCE.get()))
         });
 
         public MindLayer() { }

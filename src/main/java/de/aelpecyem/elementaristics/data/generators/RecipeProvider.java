@@ -29,7 +29,7 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider{
     }
 
     private void registerMiscRecipes(Consumer<IFinishedRecipe> consumer){
-        ShapedRecipeBuilder.shapedRecipe(ModBlocks.stone_enriched, 8)
+        ShapedRecipeBuilder.shapedRecipe(ModBlocks.stone_enriched.get(), 8)
                 .patternLine("xxx")
                 .patternLine("x#x")
                 .patternLine("xxx")
@@ -40,21 +40,21 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider{
                 .addCriterion("has_block", InventoryChangeTrigger.Instance.forItems(Blocks.COBBLESTONE))
                 .build(consumer);
 
-        brick(ModBlocks.stonebricks_enriched, ModBlocks.smooth_stone_enriched).build(consumer);
+        brick(ModBlocks.stonebricks_enriched.get(), ModBlocks.smooth_stone_enriched.get()).build(consumer);
 
-        stairs(ModBlocks.stone_enriched_stairs, ModBlocks.stone_enriched).build(consumer);
-        stairs(ModBlocks.stonebricks_enriched_stairs, ModBlocks.stonebricks_enriched).build(consumer);
-        stairs(ModBlocks.smooth_stone_enriched_stairs, ModBlocks.smooth_stone_enriched).build(consumer);
+        stairs(ModBlocks.stone_enriched_stairs.get(), ModBlocks.stone_enriched.get()).build(consumer);
+        stairs(ModBlocks.stonebricks_enriched_stairs.get(), ModBlocks.stonebricks_enriched.get()).build(consumer);
+        stairs(ModBlocks.smooth_stone_enriched_stairs.get(), ModBlocks.smooth_stone_enriched.get()).build(consumer);
 
-        slabShape(ModBlocks.stone_enriched_slab, ModBlocks.stone_enriched).build(consumer);
-        slabShape(ModBlocks.stonebricks_enriched_slab, ModBlocks.stonebricks_enriched).build(consumer);
-        slabShape(ModBlocks.smooth_stone_enriched_slab, ModBlocks.smooth_stone_enriched).build(consumer);
+        slabShape(ModBlocks.stone_enriched_slab.get(), ModBlocks.stone_enriched.get()).build(consumer);
+        slabShape(ModBlocks.stonebricks_enriched_slab.get(), ModBlocks.stonebricks_enriched.get()).build(consumer);
+        slabShape(ModBlocks.smooth_stone_enriched_slab.get(), ModBlocks.smooth_stone_enriched.get()).build(consumer);
     }
 
     private void registerConversions(Consumer<IFinishedRecipe> consumer){
-        recombineSlab(consumer, ModBlocks.stone_enriched, ModBlocks.stone_enriched_slab);
-        recombineSlab(consumer, ModBlocks.stonebricks_enriched, ModBlocks.stonebricks_enriched_slab);
-        recombineSlab(consumer, ModBlocks.smooth_stone_enriched, ModBlocks.smooth_stone_enriched_slab);
+        recombineSlab(consumer, ModBlocks.stone_enriched.get(), ModBlocks.stone_enriched_slab.get());
+        recombineSlab(consumer, ModBlocks.stonebricks_enriched.get(), ModBlocks.stonebricks_enriched_slab.get());
+        recombineSlab(consumer, ModBlocks.smooth_stone_enriched.get(), ModBlocks.smooth_stone_enriched_slab.get());
     }
 
 

@@ -12,14 +12,14 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public class DappledTreeFeature extends AbstractTreeFeature<HugeTreeFeatureConfig> {
+public class DappledTreeFeature<T extends HugeTreeFeatureConfig> extends AbstractTreeFeature<T> {
 
-    public DappledTreeFeature(Function<Dynamic<?>, ? extends HugeTreeFeatureConfig> config) {
+    public DappledTreeFeature(Function<Dynamic<?>, T> config) {
         super(config);
     }
-
+    //todo
     @Override
-    public boolean generate(IWorldGenerationReader iWorldGenerationReader, Random random, BlockPos blockPos, Set<BlockPos> set, Set<BlockPos> set1, MutableBoundingBox mutableBoundingBox, HugeTreeFeatureConfig hugeTreeFeatureConfig) {
+    public boolean generate(IWorldGenerationReader iWorldGenerationReader, Random random, BlockPos blockPos, Set<BlockPos> set, Set<BlockPos> set1, MutableBoundingBox mutableBoundingBox, T hugeTreeFeatureConfig) {
         int height = random.nextInt(5) + random.nextInt(4) + hugeTreeFeatureConfig.baseHeight;
         int j = blockPos.getX();
         int k = blockPos.getY();

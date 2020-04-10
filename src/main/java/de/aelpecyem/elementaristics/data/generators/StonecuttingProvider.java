@@ -25,13 +25,13 @@ public class StonecuttingProvider extends RecipeProvider {
 
     @Override
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
-        consumer.accept(stonecutting(ModBlocks.smooth_stone_enriched, ModBlocks.stonebricks_enriched));
-        consumer.accept(stonecutting(ModBlocks.stone_enriched, ModBlocks.stone_enriched_slab, 2));
-        consumer.accept(stonecutting(ModBlocks.stone_enriched, ModBlocks.stone_enriched_stairs));
-        consumer.accept(stonecutting(ModBlocks.stonebricks_enriched, ModBlocks.stonebricks_enriched_slab, 2));
-        consumer.accept(stonecutting(ModBlocks.stonebricks_enriched, ModBlocks.stonebricks_enriched_stairs));
-        consumer.accept(stonecutting(ModBlocks.smooth_stone_enriched, ModBlocks.smooth_stone_enriched_slab, 2));
-        consumer.accept(stonecutting(ModBlocks.smooth_stone_enriched, ModBlocks.smooth_stone_enriched_stairs));
+        consumer.accept(stonecutting(ModBlocks.smooth_stone_enriched.get(), ModBlocks.stonebricks_enriched.get()));
+        consumer.accept(stonecutting(ModBlocks.stone_enriched.get(), ModBlocks.stone_enriched_slab.get(), 2));
+        consumer.accept(stonecutting(ModBlocks.stone_enriched.get(), ModBlocks.stone_enriched_stairs.get()));
+        consumer.accept(stonecutting(ModBlocks.stonebricks_enriched.get(), ModBlocks.stonebricks_enriched_slab.get(), 2));
+        consumer.accept(stonecutting(ModBlocks.stonebricks_enriched.get(), ModBlocks.stonebricks_enriched_stairs.get()));
+        consumer.accept(stonecutting(ModBlocks.smooth_stone_enriched.get(), ModBlocks.smooth_stone_enriched_slab.get(), 2));
+        consumer.accept(stonecutting(ModBlocks.smooth_stone_enriched.get(), ModBlocks.smooth_stone_enriched_stairs.get()));
     }
 
     @Nonnull

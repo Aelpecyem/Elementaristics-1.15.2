@@ -11,15 +11,9 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class SleepHandler {
-    /*When the player goes to sleep, an effect check takes place
-    Should the player be intoxicated, they are immediately sent to the Mind, with a dummy replacing their body.
-    The dummy loads the chunk it's in, and is given the intoxicated effect of the player with the same amplifier.
-    The duration is calculated with a minimum value of one minute, multiplied with the effect amplifier (+1)
-    So it looks like this: Math.max(duration, 1200) * (amplifier + 1)
-    */
     @SubscribeEvent
     public static void onSleep(PlayerSleepInBedEvent event){
-        EffectInstance intoxicated = event.getPlayer().getActivePotionEffect(ModPotions.intoxicated);
+        EffectInstance intoxicated = event.getPlayer().getActivePotionEffect(ModPotions.INTOXICATED.get());
         if (intoxicated != null && !event.getPlayer().world.isRemote){
             PlayerEntity player = event.getPlayer();
             EntityPlayerDummy.createDummyAndSendPlayerAway(player.world, player);

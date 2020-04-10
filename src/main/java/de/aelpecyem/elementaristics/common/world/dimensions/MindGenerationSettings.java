@@ -6,6 +6,6 @@ import net.minecraft.world.gen.GenerationSettings;
 public class MindGenerationSettings extends GenerationSettings {
     public MindGenerationSettings() {
         super();
-        defaultBlock = ModBlocks.roots.getDefaultState();
+        defaultBlock = ModBlocks.roots.get().getDefaultState();
     }
 }

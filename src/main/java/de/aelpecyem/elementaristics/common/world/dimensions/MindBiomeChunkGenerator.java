@@ -53,7 +53,8 @@ public class MindBiomeChunkGenerator extends NoiseChunkGenerator<MindGenerationS
         float f1 = 0.0F;
         float f2 = 0.0F;
         int sea = this.getSeaLevel();
-        float f3 = this.biomeProvider.getBiomeForNoiseGen(chunkX, sea, chunkZ).getDepth();
+        Biome biomeForNoiseGen = this.biomeProvider.getBiomeForNoiseGen(chunkX, sea, chunkZ);
+        float depth = biomeForNoiseGen.getDepth();
 
         for(int j = -2; j <= 2; ++j) {
             for(int k = -2; k <= 2; ++k) {
@@ -61,7 +62,7 @@ public class MindBiomeChunkGenerator extends NoiseChunkGenerator<MindGenerationS
                 float f4 = biome.getDepth();
                 float f5 = biome.getScale();
                 float f6 = biomeWeights[j + 2 + (k + 2) * 5] / (f4 + 2.0F);
-                if (biome.getDepth() > f3) {
+                if (biome.getDepth() > depth) {
                     f6 /= 2.0F;
                 }
 
@@ -102,11 +103,11 @@ public class MindBiomeChunkGenerator extends NoiseChunkGenerator<MindGenerationS
 
     @Override
     public int getGroundHeight() {
-        return this.world.getSeaLevel() + 2;
+        return 30;
     }
 
     @Override
     public int getSeaLevel() {
-        return 60;
+        return 0;
     }
 }

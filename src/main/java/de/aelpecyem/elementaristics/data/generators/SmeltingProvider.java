@@ -17,8 +17,8 @@ public class SmeltingProvider extends net.minecraft.data.RecipeProvider{
 
     @Override
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
-        CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(ModBlocks.stone_enriched), ModBlocks.smooth_stone_enriched, 0.1f, 200)
-                .addCriterion("has_item", hasItem(ModBlocks.stone_enriched))
+        CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(ModBlocks.stone_enriched.get()), ModBlocks.smooth_stone_enriched.get(), 0.1f, 200)
+                .addCriterion("has_item", hasItem(ModBlocks.stone_enriched.get()))
                 .build(consumer, new ResourceLocation(Constants.MOD_ID, "smelting/" + "stone_enriched"));
     }
 

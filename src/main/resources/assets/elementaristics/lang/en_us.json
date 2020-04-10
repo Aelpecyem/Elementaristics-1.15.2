@@ -5,9 +5,9 @@
   "command.elem.set_magan.success": "Successfully set %s's Magan to %s",
 
   "_comment1": "BIOMES",
-  "biome.elementaristics.decadent_quags": "Decadent Quags",
-  "biome.elementaristics.dreamy_thicket": "Dreamy Thicket",
-  "biome.elementaristics.mind_meadows": "Mindful Meadows",
+  "biome.elementaristics.fields_decadence": "Fields of Decadence",
+  "biome.elementaristics.fields_passion": "Fields of Passion",
+  "biome.elementaristics.fields_reason": "Fields of Reason",
 
   "_comment2": "BLOCKS",
   "block.elementaristics.stone_enriched": "Enriched Stone",
