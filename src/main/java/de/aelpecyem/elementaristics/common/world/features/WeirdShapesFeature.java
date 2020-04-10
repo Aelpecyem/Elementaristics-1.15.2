@@ -26,7 +26,8 @@ public class WeirdShapesFeature<T extends BlockStateFeatureConfig> extends Featu
     }
 
     public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> chunkGen, Random rand, BlockPos pos, T fc) {
-        if (rand.nextInt(10) == 0){
+        pos = world.getChunk(pos).getPos().asBlockPos().add(0, pos.getY(), 0);
+        if (rand.nextInt(16) == 0){
             return placePyramid(world, pos, rand, fc);
         }else if (rand.nextBoolean()){
             return placeColumn(world, pos, rand, fc);
@@ -36,6 +37,7 @@ public class WeirdShapesFeature<T extends BlockStateFeatureConfig> extends Featu
 
     public boolean placeCube(IWorld world, BlockPos pos, Random rand, T fc){
         int width = 2 + rand.nextInt(8);
+        pos = pos.add(rand.nextInt(16 - width), 0, rand.nextInt(16 - width));
         BlockState blockState;
         for (int x = width; x >= 0; x--) {
             for (int y = width; y >= 0; y--) {
@@ -48,7 +50,7 @@ public class WeirdShapesFeature<T extends BlockStateFeatureConfig> extends Featu
                     } else {
                         blockState = fc.state;
                     }
-                    world.setBlockState(pos.add(width / 2F - x, y, width / 2F - z), blockState, 2);
+                    world.setBlockState(pos.add(x, y, z), blockState, 2);
                 }
             }
         }
@@ -59,6 +61,7 @@ public class WeirdShapesFeature<T extends BlockStateFeatureConfig> extends Featu
         int width = 2 + rand.nextInt(3);
         int height = width * 5;
         BlockState blockState;
+        pos = pos.add(rand.nextInt(16 - width), 0, rand.nextInt(16 - width));
         for (int x = width; x >= 0; x--) {
             for (int y = height; y >= 0; y--) {
                 for (int z = width; z >= 0; z--) {
@@ -70,7 +73,7 @@ public class WeirdShapesFeature<T extends BlockStateFeatureConfig> extends Featu
                     } else {
                         blockState = fc.state;
                     }
-                    world.setBlockState(pos.add(width / 2F - x, y, width / 2F - z), blockState, 2);
+                    world.setBlockState(pos.add(x, y, z), blockState, 2);
                 }
             }
         }
@@ -78,7 +81,8 @@ public class WeirdShapesFeature<T extends BlockStateFeatureConfig> extends Featu
     }
 
     public boolean placePyramid(IWorld world, BlockPos pos, Random rand, T fc){
-        int size = rand.nextInt(6) * 2 + 3;
+        int size = rand.nextInt(6) * 2 + 5;
+        pos = pos.add(rand.nextInt(16 - size), 0, rand.nextInt(16 - size));
         BlockPos.Mutable placerPos = new BlockPos.Mutable(pos);
         BlockState blockState;
 

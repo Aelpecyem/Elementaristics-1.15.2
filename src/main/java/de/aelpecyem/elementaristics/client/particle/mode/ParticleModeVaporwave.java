@@ -1,7 +1,7 @@
 package de.aelpecyem.elementaristics.client.particle.mode;
 
 import de.aelpecyem.elementaristics.client.particle.GlowParticle;
-import de.aelpecyem.elementaristics.client.particle.ModParticles;
+import de.aelpecyem.elementaristics.client.particle.ParticleHandler;
 import de.aelpecyem.elementaristics.lib.ColorUtil;
 import net.minecraft.client.particle.IParticleRenderType;
 
@@ -27,7 +27,7 @@ public class ParticleModeVaporwave extends ParticleMode {
 
     @Override
     public IParticleRenderType renderType(GlowParticle particle) {
-        return ModParticles.RenderTypes.DARKEN; //darken or brighten?
+        return ParticleHandler.RenderTypes.DARKEN; //darken or brighten?
     }
 
     @Override

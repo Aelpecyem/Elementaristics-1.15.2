@@ -6,6 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.ChanceConfig;
+import net.minecraft.world.gen.placement.NoiseDependant;
 import net.minecraft.world.gen.placement.Placement;
 
 public class FieldsReasonBiome extends ModBiome {
@@ -16,7 +17,8 @@ public class FieldsReasonBiome extends ModBiome {
 
     @Override
     public void addFeatures() {
-         addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, ModWorld.WEIRD_SHAPES.get().configure(new BlockStateFeatureConfig(Blocks.LIGHT_BLUE_CONCRETE_POWDER.getDefaultState())).createDecoratedFeature(Placement.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceConfig(Config.WEIRD_CUBES_FREQUENCY.get()))));
+        addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, ModWorld.WEIRD_SHAPES.get().configure(new BlockStateFeatureConfig(Blocks.LIGHT_BLUE_CONCRETE_POWDER.getDefaultState())).createDecoratedFeature(Placement.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceConfig(Config.WEIRD_CUBES_FREQUENCY.get()))));
+
         super.addFeatures();
     }
 

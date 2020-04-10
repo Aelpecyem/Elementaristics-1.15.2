@@ -13,9 +13,6 @@ public abstract class ModParticle extends TexturedParticle {
 
     public ModParticle(World world, double x, double y, double z, double motionX, double motionY, double motionZ) {
         super(world, x, y, z, motionX, motionY, motionZ);
-        this.motionX = motionX;
-        this.motionY = motionY;
-        this.motionZ = motionZ;
     }
 
     public abstract ResourceLocation getTexture();
@@ -41,6 +38,6 @@ public abstract class ModParticle extends TexturedParticle {
     }
 
     public IParticleRenderType getRenderType() {
-        return ColorUtil.isDark(particleRed, particleGreen, particleBlue) ? ModParticles.RenderTypes.DARKEN : ModParticles.RenderTypes.BRIGHT;
+        return ColorUtil.isDark(particleRed, particleGreen, particleBlue) ? ParticleHandler.RenderTypes.DARKEN : ParticleHandler.RenderTypes.BRIGHT;
     }
 }

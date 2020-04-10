@@ -1,7 +1,7 @@
 package de.aelpecyem.elementaristics.client.particle.mode;
 
 import de.aelpecyem.elementaristics.client.particle.GlowParticle;
-import de.aelpecyem.elementaristics.client.particle.ModParticles;
+import de.aelpecyem.elementaristics.client.particle.ParticleHandler;
 import net.minecraft.client.particle.IParticleRenderType;
 
 import java.awt.*;
@@ -24,7 +24,7 @@ public class ParticleModeSpectrum extends ParticleMode {
 
     @Override
     public IParticleRenderType renderType(GlowParticle particle) {
-        return ModParticles.RenderTypes.BRIGHT;
+        return ParticleHandler.RenderTypes.BRIGHT;
     }
 
     @Override

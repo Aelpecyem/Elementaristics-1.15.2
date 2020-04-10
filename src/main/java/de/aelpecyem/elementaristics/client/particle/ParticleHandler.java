@@ -3,6 +3,7 @@ package de.aelpecyem.elementaristics.client.particle;
 import com.mojang.blaze3d.platform.GlStateManager;
 import de.aelpecyem.elementaristics.client.particle.mode.ParticleMode;
 import de.aelpecyem.elementaristics.lib.Config;
+import de.aelpecyem.elementaristics.lib.Constants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.IParticleRenderType;
 import net.minecraft.client.particle.Particle;
@@ -13,8 +14,16 @@ import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particles.BasicParticleType;
+import net.minecraft.particles.IParticleData;
+import net.minecraft.particles.ParticleType;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import org.lwjgl.opengl.GL11;
 
 import javax.annotation.Nullable;
@@ -22,7 +31,20 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Supplier;
 
-public class ModParticles {
+@Mod.EventBusSubscriber(modid = Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+public class ParticleHandler {
+    //public static final BasicParticleType GLOW = register("elementaristics:glow", false);
+
+  /*  private static BasicParticleType register(String key, boolean alwaysShow) {
+      //  return (BasicParticleType) Registry.<ParticleType<? extends IParticleData>>register(Registry.PARTICLE_TYPE, key, new BasicParticleType(alwaysShow));
+    }*/
+
+    /*@SubscribeEvent
+    public static void registerParticleFactories(ParticleFactoryRegisterEvent event) {
+        Minecraft.getInstance().particles.registerFactory(GLOW, GlowParticle.Factory::new);
+    }*/
+
+
     //@Todo: add particles properly, just as intended
     public void spawnParticle(GlowParticle particle) {
         Handler.spawnParticle(() -> particle);

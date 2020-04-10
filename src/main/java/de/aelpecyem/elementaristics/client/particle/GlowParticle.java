@@ -3,9 +3,8 @@ package de.aelpecyem.elementaristics.client.particle;
 import de.aelpecyem.elementaristics.client.particle.mode.ParticleMode;
 import de.aelpecyem.elementaristics.client.particle.mode.ParticleModes;
 import de.aelpecyem.elementaristics.lib.Constants;
-import net.minecraft.client.particle.IParticleFactory;
-import net.minecraft.client.particle.IParticleRenderType;
-import net.minecraft.client.particle.Particle;
+import net.minecraft.client.particle.*;
+import net.minecraft.particles.BasicParticleType;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
@@ -15,7 +14,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 import java.util.Random;
-public class GlowParticle extends ModParticle { //todo work on all that stuff later, maybe optimize it by using actual RenderType code etc
+//todo next: make a new particle class, register it properly, see if it spawns, then add all the other stuff (see TinyPieces
+public class GlowParticle extends ModParticle { //todo work on all that stuff later, maybe optimize it by using actual RenderType code etc, also look at SpellParticle
     public float distanceTravelled = 0;
     public boolean followPosition = false;
     public double xTo, yTo, zTo;
@@ -23,7 +23,6 @@ public class GlowParticle extends ModParticle { //todo work on all that stuff la
     public EnumFadeMode fadeMode = EnumFadeMode.NONE;
     public boolean shrink = false;
     public float desiredScale, desiredAlpha;
-
     public int modeInt;
     public GlowParticle(World world, double posX, double posY, double posZ, double motionX, double motionY, double motionZ) {
         super(world, posX, posY, posZ, motionX, motionY, motionZ);
@@ -93,8 +92,6 @@ public class GlowParticle extends ModParticle { //todo work on all that stuff la
     public Random getRandom() {
         return world.rand;
     }
-
-    //todo create a method to move relative to current movement (multiply vectors???? no clue) probably test that then...
 
     @Override
     public void move(double x, double y, double z) {
@@ -180,10 +177,22 @@ public class GlowParticle extends ModParticle { //todo work on all that stuff la
     }
 
     public enum EnumFadeMode {
-        OUT,
-        IN,
-        IN_OUT,
-        NONE
+        OUT(0),
+        IN(1),
+        IN_OUT(2),
+        NONE(3);
+
+        private byte id;
+        EnumFadeMode(int id){
+            this.id = (byte) id;
+        }
+
+        public byte toId(){
+            return id;
+        }
+        public static EnumFadeMode fromId(byte id){
+            return EnumFadeMode.values()[id];
+        }
     }
 
     public int getAge() {
@@ -208,11 +217,19 @@ public class GlowParticle extends ModParticle { //todo work on all that stuff la
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static class Factory implements IParticleFactory<IParticleData> {
+    public static class Factory implements IParticleFactory<BasicParticleType> {
+
+        private final IAnimatedSprite spriteSet;
+
+        public Factory(IAnimatedSprite p_i50058_1_) {
+            this.spriteSet = p_i50058_1_;
+        }
+
         @Nullable
         @Override
-        public Particle makeParticle(IParticleData iParticleData, World world, double v, double v1, double v2, double v3, double v4, double v5) {
-            return new GlowParticle(world, v, v1, v2, v3, v4, v5);
+        public Particle makeParticle(BasicParticleType basicParticleType, World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+
+            return null;
         }
     }
 }
