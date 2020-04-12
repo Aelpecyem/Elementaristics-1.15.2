@@ -1,16 +1,24 @@
 package de.aelpecyem.elementaristics.client.particle.mode;
 
-import de.aelpecyem.elementaristics.client.particle.GlowParticle;
+import de.aelpecyem.elementaristics.client.particle.MagicParticle;
+import de.aelpecyem.elementaristics.reg.ModParticles;
 import net.minecraft.client.particle.IParticleRenderType;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class ParticleMode {
-    public abstract void tick(GlowParticle particle);
+    public static List<ParticleMode> MODES = new ArrayList<>();
 
-    public abstract void setUp(GlowParticle particle);
+    public ParticleMode() {
+        MODES.add(this);
+    }
 
-    public abstract boolean overridesCompletely();
+    public abstract void setup(MagicParticle particle);
 
-    public IParticleRenderType renderType(GlowParticle particle) {
-        return null;
+    public abstract void update(MagicParticle particle);
+
+    public IParticleRenderType getRenderType(MagicParticle particle) {
+        return ModParticles.RenderTypes.BRIGHT;
     }
 }

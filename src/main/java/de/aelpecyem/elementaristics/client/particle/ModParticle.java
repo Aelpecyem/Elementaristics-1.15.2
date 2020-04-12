@@ -1,6 +1,7 @@
 package de.aelpecyem.elementaristics.client.particle;
 
 import de.aelpecyem.elementaristics.lib.ColorUtil;
+import de.aelpecyem.elementaristics.reg.ModParticles;
 import net.minecraft.client.particle.IParticleRenderType;
 import net.minecraft.client.particle.TexturedParticle;
 import net.minecraft.util.ResourceLocation;
@@ -38,6 +39,6 @@ public abstract class ModParticle extends TexturedParticle {
     }
 
     public IParticleRenderType getRenderType() {
-        return ColorUtil.isDark(particleRed, particleGreen, particleBlue) ? ParticleHandler.RenderTypes.DARKEN : ParticleHandler.RenderTypes.BRIGHT;
+        return ColorUtil.isDark(particleRed, particleGreen, particleBlue) ? ModParticles.RenderTypes.DARKEN : ModParticles.RenderTypes.BRIGHT;
     }
 }

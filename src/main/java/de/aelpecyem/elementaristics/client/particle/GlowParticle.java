@@ -1,11 +1,10 @@
 package de.aelpecyem.elementaristics.client.particle;
 
-import de.aelpecyem.elementaristics.client.particle.mode.ParticleMode;
-import de.aelpecyem.elementaristics.client.particle.mode.ParticleModes;
 import de.aelpecyem.elementaristics.lib.Constants;
-import net.minecraft.client.particle.*;
+import net.minecraft.client.particle.IAnimatedSprite;
+import net.minecraft.client.particle.IParticleFactory;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.particles.BasicParticleType;
-import net.minecraft.particles.IParticleData;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -19,8 +18,8 @@ public class GlowParticle extends ModParticle { //todo work on all that stuff la
     public float distanceTravelled = 0;
     public boolean followPosition = false;
     public double xTo, yTo, zTo;
-    public ParticleMode mode = ParticleModes.STANDARD;
-    public EnumFadeMode fadeMode = EnumFadeMode.NONE;
+    // public ParticleMode mode = ParticleModes.STANDARD;
+    public MagicParticle.EnumFadeMode fadeMode = MagicParticle.EnumFadeMode.NONE;
     public boolean shrink = false;
     public float desiredScale, desiredAlpha;
     public int modeInt;
@@ -37,7 +36,7 @@ public class GlowParticle extends ModParticle { //todo work on all that stuff la
         this.desiredAlpha = particleAlpha;
     }
 
-    public GlowParticle(World world, double posX, double posY, double posZ, double motionX, double motionY, double motionZ, int lifetime, int color, float alpha, float scale, float gravity, boolean collision, boolean shrink, EnumFadeMode fadeMode) {
+    public GlowParticle(World world, double posX, double posY, double posZ, double motionX, double motionY, double motionZ, int lifetime, int color, float alpha, float scale, float gravity, boolean collision, boolean shrink, MagicParticle.EnumFadeMode fadeMode) {
         super(world, posX, posY, posZ, motionX, motionY, motionZ);
         this.particleScale = scale;
         this.particleGravity = gravity;
@@ -54,7 +53,7 @@ public class GlowParticle extends ModParticle { //todo work on all that stuff la
         //todo work on the "AI" and params stuff later, add spawning methods in ModParticles, move the handling done in ParticleHandler to ModParticles, tick stuff etc.
     }
 
-    public GlowParticle(World world, double posX, double posY, double posZ, double posXTo, double posYTo, double posZTo, int lifetime, int color, float alpha, float scale, boolean collision, boolean shrink, EnumFadeMode fadeMode) {
+    public GlowParticle(World world, double posX, double posY, double posZ, double posXTo, double posYTo, double posZTo, int lifetime, int color, float alpha, float scale, boolean collision, boolean shrink, MagicParticle.EnumFadeMode fadeMode) {
         super(world, posX, posY, posZ, 0, 0, 0);
         this.particleScale = scale;
         this.particleGravity = 0;
@@ -74,7 +73,7 @@ public class GlowParticle extends ModParticle { //todo work on all that stuff la
         this.desiredAlpha = particleAlpha;
     }
 
-    public ParticleMode getMode() {
+ /*   public ParticleMode getMode() {
         return mode;
     }
 
@@ -83,7 +82,7 @@ public class GlowParticle extends ModParticle { //todo work on all that stuff la
             this.mode = mode;
             mode.setUp(this);
         }
-    }
+    }*/
 
     public void setAge(int age) {
         this.age = age;
@@ -101,7 +100,7 @@ public class GlowParticle extends ModParticle { //todo work on all that stuff la
 
     @Override
     public void tick() {
-        if (mode != null) {
+       /* if (mode != null) {
             mode.tick(this);
         }
         if (mode == null || !mode.overridesCompletely()) {
@@ -136,9 +135,9 @@ public class GlowParticle extends ModParticle { //todo work on all that stuff la
                 this.move(this.motionX, this.motionY, this.motionZ);
 
                 float lifeRatio = (float) this.age / (float) this.maxAge; //in-out stuff
-                lifeRatio = fadeMode == EnumFadeMode.IN_OUT ? 1 - (0.5F - Math.abs(0.5F - lifeRatio)) * 1.8F : fadeMode == EnumFadeMode.IN ? 1 - lifeRatio : lifeRatio;
+                lifeRatio = fadeMode == MagicParticle.EnumFadeMode.IN_OUT ? 1 - (0.5F - Math.abs(0.5F - lifeRatio)) * 1.8F : fadeMode == MagicParticle.EnumFadeMode.IN ? 1 - lifeRatio : lifeRatio;
 
-                if (this.fadeMode != EnumFadeMode.NONE)
+                if (this.fadeMode != MagicParticle.EnumFadeMode.NONE)
                     this.particleAlpha = this.desiredAlpha * (1F - (lifeRatio));
                 if (this.shrink)
                     this.particleScale = this.desiredScale * (1F - (lifeRatio));
@@ -153,7 +152,7 @@ public class GlowParticle extends ModParticle { //todo work on all that stuff la
                 this.setExpired();
             }
         }
-
+*/
     }
 
     @Override
@@ -176,25 +175,6 @@ public class GlowParticle extends ModParticle { //todo work on all that stuff la
         return new ResourceLocation(Constants.MOD_ID, "textures/particle/glow.png");
     }
 
-    public enum EnumFadeMode {
-        OUT(0),
-        IN(1),
-        IN_OUT(2),
-        NONE(3);
-
-        private byte id;
-        EnumFadeMode(int id){
-            this.id = (byte) id;
-        }
-
-        public byte toId(){
-            return id;
-        }
-        public static EnumFadeMode fromId(byte id){
-            return EnumFadeMode.values()[id];
-        }
-    }
-
     public int getAge() {
         return age;
     }
@@ -211,11 +191,11 @@ public class GlowParticle extends ModParticle { //todo work on all that stuff la
         return particleBlue;
     }
 
-    @Override
-    public IParticleRenderType getRenderType() {
-        return mode == null || mode.renderType(this) == null ? super.getRenderType() : mode.renderType(this);
-    }
-
+    /*   @Override
+       public IParticleRenderType getRenderType() {
+           return mode == null || mode.renderType(this) == null ? super.getRenderType() : mode.renderType(this);
+       }
+   */
     @OnlyIn(Dist.CLIENT)
     public static class Factory implements IParticleFactory<BasicParticleType> {
 
